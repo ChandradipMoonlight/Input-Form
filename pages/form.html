@@ -19,8 +19,8 @@
             <error-output class="text-error" for="text"></error-output>
         </div>
         <div>
-            <label for="pwd">password input type: </label>
-            <input type="password" id="pwd" name="pwd" required>
+            <label for="password">password input type: </label>
+            <input type="password" id="password" name="password" required>
             <error-output class="password-error" for="password"></error-output>
         </div>
         <div>
@@ -75,8 +75,8 @@
             let emailRegex = RegExp("^[0-9A-Za-z]+(([._+-]?)[0-9A-Za-z]+)*" +
                 "@[0-9A-Za-z]+.[a-z]{2,4}.([a-z]{2,3})*$");
             if (emailRegex.test(email.value))
-                emailError.emailContent = "";
-            else emailError.emailContent = "Email is Incorrect"
+                emailError.textContent = "";
+            else emailError.textContent = "Email is Incorrect"
         };
 
         const number = document.querySelector('#number');
@@ -84,18 +84,18 @@
         number.addEventListener('input', function() {
             let numberRegex = RegExp('^[9][1]\\s[6-9][0-9]{9}$');
             if (numberRegex.test(number.value))
-                numberError.numberContent = "";
-            else numberError.numberContent = "Mobile number is Incorrect";
+                numberError.textContent = "";
+            else numberError.textContent = "Mobile number is Incorrect";
         });
 
         const password = document.querySelector('#password');
         const passwordError = document.querySelector('.password-error');
-        password.oninput = function() {
+        password.addEventListener('input', function() {
             let passwordRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$');
             if (passwordRegex.test(password.value))
-                passwordError.passwordContent = "";
-            else passwordError.passwordContent = "password is Incorrect"
-        };
+                passwordError.textContent = "";
+            else passwordError.textContent = "password is Incorrect"
+        });
 
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
